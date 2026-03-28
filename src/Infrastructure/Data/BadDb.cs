@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 public static class BadDb
 {
-    public static string ConnectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING") ?? "";
+    public static readonly string ConnectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING") ?? "";
 
     public static int ExecuteNonQueryUnsafe(string sql)
     {
