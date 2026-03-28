@@ -13,7 +13,7 @@ public class Order
 
     public void CalculateTotalAndLog()
     {
-        var total = Quantity * UnitPrice; 
-        //Infrastructure.Logging.Logger.Log("Total (maybe): " + total);
+        var total = Quantity * UnitPrice;
+        Console.WriteLine("Total (maybe): " + total);
     }
 }

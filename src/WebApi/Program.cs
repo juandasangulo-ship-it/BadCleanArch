@@ -9,9 +9,6 @@ builder.Services.AddCors(o => o.AddPolicy("bad", p => p.AllowAnyOrigin().AllowAn
 
 var app = builder.Build();
 
-BadDb.ConnectionString = app.Configuration["ConnectionStrings:Sql"]
-    ?? Environment.GetEnvironmentVariable("DB_CONNECTION_STRING") ?? "";
-
 app.UseCors("bad");
 
 app.Use(async (ctx, next) =>
