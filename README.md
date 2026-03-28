@@ -1,0 +1,1 @@
+Proyecto BadCleanArch - Análisis SonarCloud
