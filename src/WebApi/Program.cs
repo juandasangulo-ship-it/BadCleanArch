@@ -41,7 +41,7 @@ app.MapPost("/orders", async (HttpContext http) =>
     
 });
 
-app.MapGet("/orders/last", () => Domain.Services.OrderService.LastOrders);
+app.MapGet("/orders/last", () => Domain.Services.OrderService.GetLastOrders());
 
 app.MapGet("/info", (IConfiguration cfg) => new
 {
