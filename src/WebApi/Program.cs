@@ -6,7 +6,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Logging.ClearProviders();
 
-builder.Services.AddCors(o => o.AddPolicy("bad", p => p.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
+builder.Services.AddCors(o => o.AddPolicy("bad", p => p
+    .WithOrigins("http://localhost:9000")
+    .WithHeaders("Content-Type")
+    .WithMethods("GET", "POST")));
 
 var app = builder.Build();
 
@@ -20,7 +23,7 @@ app.Use(async (ctx, next) =>
 app.MapGet("/health", () =>
 {
     Logger.Log("health ping");
-    var x = new Random().Next();
+    var x = System.Security.Cryptography.RandomNumberGenerator.GetInt32(int.MaxValue);
     if (x % 13 == 0) throw new InvalidOperationException("random failure"); 
     return "ok " + x;
 });
